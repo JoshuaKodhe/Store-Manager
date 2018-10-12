@@ -142,7 +142,8 @@ font-size: 14px
 }
 
 .signup,
-.login {
+.login,
+.newproduct {
   height: auto;
   margin: auto 5%;
   padding: 2em;
