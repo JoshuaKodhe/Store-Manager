@@ -141,14 +141,13 @@ font-size: 14px
   text-align: center;
 }
 
-/* Login */
+.signup,
 .login {
   height: auto;
-  margin: 10% 5%;
+  margin: auto 5%;
   padding: 2em;
   text-align: center;
   background-color: #ffffff;
-  border: 1px solid rgba(#000000, 0.1);
 }
 
 .form-control {
@@ -159,6 +158,7 @@ font-size: 14px
   outline: 0;
   border-width: 0 0 2px;
   border-color: #cccccc;
+  border: 1px solid rgba(#000000, 0.1);
 }
 
 .form-control:focus {
@@ -174,8 +174,6 @@ font-size: 14px
   font-size: 18px;
 }
 
-/* End of Login */
-/*Products*/
 table {
     border-collapse: collapse;
     border-spacing: 0;
