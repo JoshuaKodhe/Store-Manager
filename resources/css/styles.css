@@ -2,6 +2,7 @@ html,
 body {
   font-family: sans-serif, Verdana;
   margin: 0 auto;
+  padding: 0 auto;
   height: 100%;
   background: #f3f3f3;
 }
@@ -10,98 +11,115 @@ body {
   text-decoration: none;
 }
 
-header {
-  background: #ffffff;
-  width: 100%;
-  height: 70px;
+.btn{
+  background-color: inherit;
+  border: 2px solid;
+  border-radius: 6px;
+  margin: 0.5em 0.5em;
+  padding: 0.5em 0.5em;
+ text-align: center;
+ display: inline-block;
+ font-size: 14px;
+ cursor: pointer;
+}
+.btn-large{
+  font-size: 20px;
+  width: 15%;
 }
 
-header .header-brand {
+.btn-long{
+  width:50%;
+}
+.btn-success {
+  border: 2px solid #5cb85c;
+  color: #5cb85c;
+}
+.btn-success:hover{
+  background-color: #5cb85c;
+  color: #ffffff;
+}
+.btn-warning {
+  border: 2px solid #dda330;
+  color: #dda330;
+}
+.btn-warning:hover{
+  background-color: #dda330;
+  color: #ffffff;
+}
+.btn-danger {
+  border: 2px solid #cd0d0d;
+  color: #cd0d0d;
+}
+.btn-danger:hover{
+  background-color: #cd0d0d;
+  color: #ffffff;
+}
+.container {
+  display: grid;
+  grid-template-columns: 12% 76% 12%;
+  grid-template-rows: 6vh 88vh 6vh;
+}
+
+.header,
+.footer {
+  padding: 0 0.5%;
+  font-weight: bolder;
+  background-color: #ffffff;
+  grid-column: 1/-1;
+}
+
+
+.header-brand,
+.login-heading
+{
+  color: #111111;
   font-family: sans-serif;
   font-size: 24px;
   font-weight: 900;
-  color: #111;
   display: block;
   padding: 20px 0 0 20px;
 }
 
-.container {
-  margin: 5px auto;
-  margin-left: 10px;
-  margin-right: 10px;
+.main {
+  grid-column: 2/3;
 }
 
-/* Login */
-.login {
-  margin: 55px auto;
-  padding: 30px 30px 30px;
-  width: 35%;
-  height: auto;
-  background-color: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+.footer {
   text-align: center;
 }
 
-.login input {
+/* Login */
+.login{
+  height: auto;
+  margin: 10% 5%;
+  padding: 2em;
+  text-align: center;
+  background-color: #ffffff;
+  border: 1px solid rgba(#000000, 0.1);
+}
+
+.form-control{
+  margin:15px 0 15px 0;
+  font-size: 16px;
+  padding: 10px;
+  width: 50%;
   outline: 0;
   border-width: 0 0 2px;
-  border-color: #111111;
+  border-color: #cccccc;
+}
+.form-control:focus{
+    border-color: #4CAF50
 }
 
-.login input:focus {
-  border-color: #4CAF50
-}
-
-input::placeholder {
+.form-control::placeholder {
   color: #cccccc;
   font-size: 16px;
 }
 
-.form-control{
-  margin:10px 0 10px 0;
+#remember-me{
+font-size: 18px;
 }
-
-.login-heading,
-.remember-me {
-  margin-top: 30px;
+#remember-me input[checkbox]{
+  transform: scale(2);
 }
-
-.form-control {
-  font-size: 16px;
-  height: auto;
-  padding: 10px;
-  width: 70%;
-}
-
-.btn {
-  border: none;
-  color: #ffffff;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
-
-.btn-success {
-  background-color: #4CAF50;
-}
-
-.btn-lager{
-  width: 40%;
-}
-
-.login-help{
-  display: block;
-  text-align: center;
-}
-.login-help a {
-  color: #46464B;
-}
-
-.login-help a:hover {
-  text-decoration: underline;
-  border: 1px solid;
-}
-
 /* End of Login */
