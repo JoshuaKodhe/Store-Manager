@@ -12,7 +12,6 @@ body {
   color: #111111;
 }
 
-
 .btn,
 .wrapper {
   background-color: inherit;
@@ -192,4 +191,35 @@ th, td {
 }
 
 tr:nth-child(even){background-color: #ddd}
-/*Products*/
+* td a{
+  text-decoration: underline;
+  color: #0d0b66;
+}
+/*End of products*/
+
+
+/* Product details*/
+.product-details{
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.product-image-detail{
+  grid-column: 1/2;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+}
+
+.product-text-detail{
+  grid-column: 2/-1;
+  text-align: left;
+}
+
+.text-heavy{
+  font-weight: bold;
+}
+.text-justified-align{
+  text-align: justify;
+}
+/* End of product details*/
