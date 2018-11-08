@@ -197,15 +197,15 @@ input[type=number]{
   width: 2em;
   height: 1em;
 }
-/*End of products*/
 
 
-/* Product details*/
+.profile-details,
 .product-details{
   display: grid;
   grid-template-columns: 50% 50%;
 }
 
+.profile-image-detail,
 .product-image-detail{
   grid-column: 1/2;
   text-align: right;
@@ -213,6 +213,7 @@ input[type=number]{
   padding: 0;
 }
 
+.profile-text-detail,
 .product-text-detail{
   grid-column: 2/-1;
   text-align: left;
@@ -224,4 +225,3 @@ input[type=number]{
 .text-justified-align{
   text-align: justify;
 }
-/* End of product details*/
