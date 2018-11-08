@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="resources/css/styles.css">
+  <title>Store Manager | Create new product</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <a href="#" class="header-brand">Store Manager</a>
+      <ul class="nav-items">
+        <li class="wrapper"> <a href="#">Log Out</a></li>
+        <li class="wrapper">
+          <a href="#">Joshua Kodhe</a>
+        </li>
+      </ul>
+    </div>
+    <div class="main">
+      <div class="newproduct">
+        <h1 class="newproduct-heading">Create product</h1>
+        <form>
+
+          <p><input type="text" class="form-control" name="productname" placeholder="Product Name"></p>
+          <p><input type="text" class="form-control" name="author" placeholder="Author"></p>
+          <p><textarea type="texterea" class="form-control" rows="8" name="note" placeholder="Description">Description</textarea>
+        </p>
+          <p><span class="text-heavy">Product Image : </span><input type="file" name="profileImage"></p>
+          <p><span class="text-heavy">Quantity : </span><input type="number" min="1" name="product-amount"></p>
+        </form>
+        <button name="button" class="btn btn-success btn-large">Create product</button>
+      </div>
+    </div>
+    <div class="footer">
+      <p> &copy; Store Management ltd</p>
+    </div>
+  </div>
+</body>
+
+</html>
