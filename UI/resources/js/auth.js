@@ -1,5 +1,7 @@
 /*jshint esversion: 6 */
 
+const baseUrl="http://127.0.0.1:5000/api/v2";
+
 document.getElementById("loginUser").addEventListener("submit", loginUser);
 
 function loginUser(e){
@@ -8,7 +10,7 @@ function loginUser(e){
 	let email = document.getElementById("email").value;
 	let password = document.getElementById('password').value;
 
-	fetch('http://127.0.0.1:5000/api/v2/auth/login',{
+	fetch(`${baseUrl}/auth/login`,{
 		method:'POST',
 		headers:{
 		'Access-Control-Allow-Origin':'*',
