@@ -13,19 +13,19 @@
     </div>
     <div class="main">
       <div class="login">
-        <h1 class="login-heading">Login</h1>
-        <form>
-          <p><input type="text" class="form-control" name="login" placeholder="Username or Email"></p>
-          <p><input type="text" class="form-control" name="password" placeholder="Password"></p>
+		<h1 class="login-heading">Login</h1>
+		<div id="response"></div>
+        <form id="loginUser">
+          <p><input type="text" class="form-control" id="email" name="login" placeholder="Email"></p>
+          <p><input type="password" id="password" class="form-control" name="password" placeholder="Password"></p>
           <p class="remember-me">
             <label id="remember-me">
               <input type="checkbox" name="remember-me">
               Remember me
             </label>
-          </p>
-        </form>
-          <a href="profile.html"><button name="button" class="btn btn-success btn-large btn-long">Login</button></a>
-
+		  </p>
+		  <input type="submit" value="submit" class="btn btn-success btn-large btn-long">
+		</form>
       </div>
     </div>
     <div class="footer">
@@ -33,4 +33,5 @@
     </div>
     </div>
   </body>
+  <script src="resources/js/auht.js"></script>
 </html>
