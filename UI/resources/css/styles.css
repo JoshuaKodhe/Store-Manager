@@ -228,3 +228,6 @@ input[type=number]{
 .elements-align-right{
   float: right;
 }
+#response{
+	margin-top: 4%;
+}
