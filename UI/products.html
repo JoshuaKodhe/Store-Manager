@@ -24,36 +24,22 @@
         <div class="page-header">
           <img src="resources/images/all-products.png" alt="">
           <h1>All products reside here</h1>
-        </div>
+		</div>
+		<div id="response"></div>
       </div>
       <div class="row">
-        <table>
+        <table id="productsTable">
           <tr>
             <th>Item Name</th>
             <th>Unit price</th>
-            <th>Date last modified</th>
+            <th>category</th>
             <th>In stock</th>
             <th>Min Stock</th>
             <th>Actions</th>
           </tr>
-          <tr>
-            <td><a href="product-details.html">Life 3.0</a></td>
-            <td>Ksh 2400</td>
-            <td>11th October 2018</td>
-            <td>24</td>
-            <td>6</td>
-            <td>
-              <span class="text-heavy">Quantity:</span>
-              <input type="number" name="quantity" min="1" />
-              <a href="shopping-cart.html"><button name="button" class="btn btn-success">Add to cart</button></a>
-            </td>
-          </tr>
         </table>
       </div>
-      <div class="row admin">
-        <hr>
-        <p class="text-heavy">If admin user</p>
-        <a href="new-product-form.html"><button name="button" class="btn btn-success">Add product</button></a>
+      <div class="row admin" id="admin">
       </div>
 
 
@@ -63,5 +49,6 @@
     </div>
   </div>
 </body>
+<script src="resources/js/products.js"></script>
 
 </html>
