@@ -7,8 +7,8 @@ document.getElementById("loginUser").addEventListener("submit", loginUser);
 function loginUser(e){
 	e.preventDefault();
 
-	let email = document.getElementById("email").value;
-	let password = document.getElementById('password').value;
+	const email = document.getElementById("email").value;
+	const password = document.getElementById('password').value;
 
 	fetch(`${baseUrl}/auth/login`,{
 		method:'POST',
