@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="resources/css/styles.css">
   <title>Store Manager | Products</title>
 </head>
+
 <body>
   <div class="container">
     <div class="header">
@@ -22,14 +23,66 @@
       <div class="row">
         <div class="page-header">
           <img src="resources/images/shopping-cart.png" alt="">
-          <h1>All products reside here</h1>
+          <h1>What's in your cart ...</h1>
         </div>
       </div>
+      <div class="row">
+        <table>
+          <tr>
+            <th>Item Name</th>
+            <th>Unit price</th>
+            <th>quantity</th>
+            <th>Total Coast</th>
+            <th>Available actions</th>
+          </tr>
+          <tr>
+            <td><a href="product-details.html">Life 3.0</a></td>
+            <td>Ksh 2400</td>
+
+            <td>
+              <input type="number" name="quantity" min="1" />
+            </td>
+            <td> unit price*quantity</td>
+            <td>
+              <button type="button" name="button" class="btn btn-warning">Update in cart</button>
+              <button type="button" name="button" class="btn btn-danger">Remove form cart</button>
+            </td>
+
+          </tr>
+          <tr>
+            <td><a href="#">Python 3 OOP</a></td>
+            <td>ksh 4900</td>
+            <td>
+              <input type="number" name="quantity" min="1" />
+            </td>
+            <td> unit price*quantity</td>
+            <td>
+              <button type="button" name="button" class="btn btn-warning">Update in cart</button>
+              <button type="button" name="button" class="btn btn-danger">Remove form cart</button>
+            </td>
+          </tr>
+          <tr>
+            <td><a href="#">Vector Mechanic for Engineers</a></td>
+            <td>Ksh 9400</td>
+            <td>
+              <input type="number" name="quantity" min="1" />
+            </td>
+            <td> unit price*quantity</td>
+              <td>
+                <button type="button" name="button" class="btn btn-warning">Update in cart</button>
+                <button type="button" name="button" class="btn btn-danger">Remove form cart</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+
 
     </div>
-    <div class="footer">
-      <p> &copy; Store Management ltd</p>
-    </div>
+
+  </div>
+  <div class="footer">
+    <p> &copy; Store Management ltd</p>
+  </div>
   </div>
 </body>
 
