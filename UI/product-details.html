@@ -24,7 +24,8 @@
         <div class="page-header">
           <img src="resources/images/product-details.png" alt="">
           <h1>Detailed view of product</h1>
-        </div>
+		</div>
+		<div id="response"></div>
       </div>
       <div class="row">
         <div class="product-details">
@@ -34,30 +35,9 @@
             </div>
           </div>
           <div class="product-text-detail">
-            <div class="row">
-              <p><span class="text-heavy">Item Name : </span>Life 3.0</p>
-              <p><span class="text-heavy">Author : </span>Max Tegmark</p>
-              <p><span class="text-heavy">ISBN-10 : </span>1101970316 </p>
-              <p><span class="text-heavy">ISBN-13 : </span>978-1101970317 </p>
-              <p><span class="text-heavy">Note : </span> </p>
-              <p class="text-justified-align">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
+            <div class="row" id="productDetails">
             </div>
-            <div class="row">
-              <span class="text-heavy">Quantity:</span>
-              <input type="number" name="quantity" min="1" />
-              <a href="shopping-cart.html"><button name="button" class="btn btn-success">Add to cart</button></a>
-            </div>
-            <div class="row admin">
-              <hr>
-              <p class="text-heavy">If admin user</p>
-              <a href="new-product-form.html"><button name="button" class="btn btn-warning">Modify</button></a>
-              <a href="products.html"><button name="button" class="btn btn-danger"> Delete</button></a>
-
+            <div class="row admin" id="admin">
             </div>
           </div>
         </div>
@@ -68,5 +48,5 @@
     </div>
   </div>
 </body>
-
+<script src="resources/js/products.js"></script>
 </html>

@@ -21,17 +21,19 @@
     </div>
     <div class="main">
       <div class="newproduct">
-        <h1 class="newproduct-heading">Create product</h1>
-        <form>
-
-          <p><input type="text" class="form-control" name="productname" placeholder="Product Name"></p>
-          <p><input type="text" class="form-control" name="author" placeholder="Author"></p>
-          <p><textarea type="texterea" class="form-control" rows="8" name="note" placeholder="Description">Description</textarea>
+		<h1 class="newproduct-heading">Add product</h1>
+		<div id="response"></div>
+        <form id="addProduct">
+          <p><input type="text" class="form-control" name="productname" placeholder="Product Name" id="productName"></p>
+		  <p><input type="text" class="form-control" name="category" placeholder="Category" id="productCategory"></p>
+		  <p><span class="text-heavy">Quantity : </span><input type="number" min="1" name="product-quantity" id="productQuantity"></p>
+		  <p><span class="text-heavy">Price : </span><input type="number" min="1" name="product-price" id="productPrice"></p>
+          <p><textarea type="texterea" class="form-control" rows="4" name="note" placeholder="Description" id="productDescription"></textarea>
         </p>
           <p><span class="text-heavy">Product Image : </span><input type="file" name="profileImage"></p>
-          <p><span class="text-heavy">Quantity : </span><input type="number" min="1" name="product-amount"></p>
+		  
+		  <input type="submit" value="Add product" class="btn btn-success btn-large">
         </form>
-        <a href="product-details.html"><button name="button" class="btn btn-success btn-large">Create product</button></a>
       </div>
     </div>
     <div class="footer">
@@ -39,5 +41,5 @@
     </div>
   </div>
 </body>
-
+<script src="resources/js/products.js"></script>
 </html>

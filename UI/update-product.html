@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="resources/css/styles.css">
-  <title>Store Manager | Products</title>
+  <title>Store Manager | Create new product</title>
 </head>
 
 <body>
@@ -20,29 +20,12 @@
       </ul>
     </div>
     <div class="main">
-      <div class="row">
-        <div class="page-header">
-          <img src="resources/images/all-products.png" alt="">
-          <h1>All products reside here</h1>
-		</div>
+      <div class="updateproduct">
+		<h1 class="updateproduct-heading">Update product</h1>
 		<div id="response"></div>
+        <form id="updateProduct">
+        </form>
       </div>
-      <div class="row">
-        <table id="productsTable">
-          <tr>
-            <th>Item Name</th>
-            <th>Unit price</th>
-            <th>category</th>
-            <th>In stock</th>
-            <th>Min Stock</th>
-            <th>Actions</th>
-          </tr>
-        </table>
-      </div>
-      <div class="row admin" id="admin">
-      </div>
-
-
     </div>
     <div class="footer">
       <p> &copy; Store Management ltd</p>
@@ -50,5 +33,4 @@
   </div>
 </body>
 <script src="resources/js/products.js"></script>
-
 </html>
