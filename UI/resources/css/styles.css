@@ -144,7 +144,8 @@ font-size: 14px
 
 .signup,
 .login,
-.newproduct {
+.newproduct,
+.updateproduct{
   height: auto;
   margin: auto 5%;
   padding: 2em;
@@ -194,7 +195,7 @@ tr:nth-child(even){background-color: #ddd}
   color: #0d0b66;
 }
 input[type=number]{
-  width: 2em;
+  width: 4em;
   height: 1em;
 }
 

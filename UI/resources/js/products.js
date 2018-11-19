@@ -109,23 +109,22 @@ function getSingleProduct(){
 	})
 	.then(res => res.json())
 	.then(data => {
-		console.log(data);
 		const productInfo = data.product;
 	
 		if(data.message == "Retrieved successfully"){
 			if(data.role == "admin"){
 				product.innerHTML += `
-				<p><span class="text-heavy">Product Name : </span>${productInfo.name}</p>
-				<p><span class="text-heavy">Category : </span>${productInfo.category}</p>
-				<p><span class="text-heavy">Price : Ksh</span> ${productInfo.price} </p>
-				<p><span class="text-heavy">Quantity : </span>${productInfo.quantity} </p>
-				<p><span class="text-heavy">Description : </span> </p>
+				<p><span class="text-heavy" id="productName">Product Name : </span>${productInfo.name}</p>
+				<p><span class="text-heavy" id="productCategory">Category : </span>${productInfo.category}</p>
+				<p><span class="text-heavy" id="productPrice">Price : Ksh</span> ${productInfo.price} </p>
+				<p><span class="text-heavy" id="productQuantity">Quantity : </span>${productInfo.quantity} </p>
+				<p><span class="text-heavy" id="productDescription">Description : </span> </p>
 				<p class="text-justified-align">
 				  ${productInfo.description}
 				</p>`;
 				admin.innerHTML +=`<hr>
-				<a href="new-product-form.html"><button name="button" class="btn btn-warning">Update</button></a>
-				<a href="products.html"><button name="button" class="btn btn-danger"> Delete</button></a>`;
+				<a href="update-product.html?id=${productId}"><button name="button" class="btn btn-warning">Update</button></a>
+				<button class="btn btn-danger" id="deleteProduct"> Delete</button>`;
 			}else{
 				product.innerHTML += `
 				<p><span class="text-heavy">Product Name : </span>${productInfo.name}</p>
@@ -155,9 +154,52 @@ function getSingleProduct(){
 	
 	});
 }
+if(window.location.href.includes("product-details.html")){ 
+	checkAccessTokenStatus();
+	window.onload = function(){
+		document.getElementById("deleteProduct").addEventListener("click", deleteProduct);
+	};
+}
 
+function deleteProduct(){
+	const productId = new URLSearchParams(window.location.search).get("id");
+	if(confirm("Delete product?")){
+		fetch(`${baseUrl}/products/${productId}`, {
+			method:'DELETE',
+			headers:{
+				'Access-Control-Allow-Origin':'*',
+				'Access-Control-Request-Method':'*',
+				'Content-Type':'application/json',
+				'Authorization':retrieveUserToken()
+			}
+		})
+		.then(res => res.json())
+		.then(data => {
+			if(data.message == `The product of ID ${productId} was delete!`){
+				document.getElementById('response').style.color = 'green';
+				document.getElementById('response').innerHTML = data.message;
+				window.setTimeout(function(){window.location.replace("products.html");}, 2000);
+			}else if(data.msg){
+				throw new Error(data.msg);
+			}else{ 
+				throw new Error(data.message);
+			}})
+		.catch(err => {
+			if(err.message =="Token has expired"){
+				document.getElementById('response').style.color = 'red';
+				document.getElementById('response').innerHTML = "Session timed out please login";
+				window.setTimeout(function(){window.location.replace("index.html");}, 2000);	
+			}else{
+				document.getElementById('response').style.color = 'red';
+				document.getElementById('response').innerHTML = err.message;
+			}
+		
+		});
+	}
+}
 
 if(window.location.href.includes("new-product-form.html")){
+	checkAccessTokenStatus();
 	document.getElementById("addProduct").addEventListener("submit", addProduct);
 }
 
@@ -168,8 +210,6 @@ function addProduct(e){
 	const quantity = parseInt(document.getElementById("productQuantity").value);
 	const description = document.getElementById("productDescription").value;
 	const category = document.getElementById("productCategory").value;
-
-	console.log(JSON.stringify({name, price, quantity, description, category}));
 
 	fetch(`${baseUrl}/products`, {
 		method:'POST',
@@ -183,9 +223,10 @@ function addProduct(e){
 	})
 	.then(res => res.json())
 	.then(data =>
-		{ console.log(data);
+		{
 			if(data.message == "Successfully added"){
-				console.log(data.product);
+				document.getElementById('response').style.color = 'green';
+				document.getElementById('response').innerHTML = `${data.message}`;
 			}else if(data.msg){
 				throw new Error(data.msg);
 			}else{
@@ -193,10 +234,9 @@ function addProduct(e){
 			}
 		})
 	.catch(err => {
-		console.log(err);
 		if(err.message =="Token has expired"){
 			document.getElementById('response').style.color = 'red';
-			document.getElementById('response').innerHTML = "Session timed out please login";
+			document.getElementById('response').innerHTML = "Session timed out ,please login";
 			window.setTimeout(function(){window.location.replace("index.html");}, 2000);	
 		}else{
 			document.getElementById('response').style.color = 'red';
@@ -208,6 +248,103 @@ function addProduct(e){
 
 
 
+function editproductDetails(){
+
+	const productId = new URLSearchParams(window.location.search).get("id");
+	const updateProductForm = document.getElementById('updateProduct');
+
+	fetch(`${baseUrl}/products/${productId}`,{
+		method:'GET',
+		headers:{
+			'Access-Control-Allow-Origin':'*',
+			'Access-Control-Request-Method':'*',
+			'Content-Type':'application/json',
+			'Authorization':retrieveUserToken()	
+			}
+
+	})
+	.then(res => res.json())
+	.then(data=>{ 
+		if(data.product){
+			const product = data.product;
+			updateProductForm.innerHTML = `<p><input type="text" class="form-control" name="productname" placeholder="Product Name" id="productName" value="${product.name}"></p>
+			<p><input type="text" class="form-control" name="category" placeholder="Category" id="productCategory" value="${product.category}"></p>
+			<p><span class="text-heavy">Quantity : </span><input type="number" min="1" name="product-quantity" id="productQuantity" value="${product.quantity}"></p>
+			<p><span class="text-heavy">Price : </span><input type="number" min="1" name="product-price" id="productPrice" value="${product.price}"></p>
+			<p><textarea type="texterea" class="form-control" rows="4" name="note" placeholder="Description" id="productDescription" >${product.description}</textarea>
+			</p>
+			<p><span class="text-heavy">Product Image : </span><input type="file" name="profileImage"></p>
+			
+			<input type="submit" value="update" class="btn btn-success btn-large" id="updateProduct">`;
+
+		}else if(data.msg){
+			throw new Error(data.msg);
+		}else{
+			throw new Error(data.message);
+		}
+
+	})
+	.catch(err => {
+		if(err.message =="Token has expired"){
+			document.getElementById('response').style.color = 'red';
+			document.getElementById('response').innerHTML = "Session timed out ,please login";
+			window.setTimeout(function(){window.location.replace("index.html");}, 2000);	
+		}else{
+			document.getElementById('response').style.color = 'red';
+			document.getElementById('response').innerHTML = err.message;
+		}
+	});
+
+	if(window.location.href.includes("update-product.html")){
+		document.getElementById("updateProduct").addEventListener("submit", updateProduct);
+	}
+
+	function updateProduct(e){
+		e.preventDefault();
+		const name = document.getElementById("productName").value;
+		const price = parseFloat(document.getElementById("productPrice").value);
+		const quantity = parseInt(document.getElementById("productQuantity").value);
+		const description = document.getElementById("productDescription").value;
+		const category = document.getElementById("productCategory").value;
+
+		fetch(`${baseUrl}/products/${productId}`, {
+			method:"PUT",
+			headers:{
+				'Access-Control-Allow-Origin':'*',
+				'Access-Control-Request-Method':'*',
+				'Content-Type':'application/json',
+				'Authorization':retrieveUserToken()	
+				},
+			body:JSON.stringify({name, price, quantity, description, category})
+		})
+		.then(res => res.json())
+		.then(data =>
+			{
+				if(data.message == "product updated"){
+					document.getElementById('response').style.color = 'green';
+					document.getElementById('response').innerHTML = `${data.message}`;
+				}else if(data.msg){
+					throw new Error(data.msg);
+				}else{
+					throw new Error(data.message);
+				}
+			})
+		.catch(err => {
+			if(err.message =="Token has expired"){
+				document.getElementById('response').style.color = 'red';
+				document.getElementById('response').innerHTML = "Session timed out ,please login";
+				window.setTimeout(function(){window.location.replace("index.html");}, 2000);	
+			}else{
+				document.getElementById('response').style.color = 'red';
+				document.getElementById('response').innerHTML = err.message;
+			}
+		
+		});
+
+	}
+}
+
+
 
 if(window.location.href.includes("products.html")){
 	checkAccessTokenStatus();
@@ -217,4 +354,9 @@ if(window.location.href.includes("products.html")){
 if(window.location.href.includes("product-details.html")){ 		
 	checkAccessTokenStatus();		
 	getSingleProduct();
+}
+
+if(window.location.href.includes("update-product.html")){
+	checkAccessTokenStatus();
+	editproductDetails();
 }
