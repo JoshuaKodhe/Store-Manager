@@ -179,10 +179,8 @@ font-size: 14px
 table {
     border-collapse: collapse;
     border-spacing: 0;
-    width: 90%;
+    width: 100%;
     border: 1px solid #ddd;
-    margin: auto;
-    padding: auto;
 }
 
 th, td {
@@ -194,6 +192,10 @@ tr:nth-child(even){background-color: #ddd}
 * td a{
   text-decoration: underline;
   color: #0d0b66;
+}
+input[type=number]{
+  width: 2em;
+  height: 1em;
 }
 /*End of products*/
 
