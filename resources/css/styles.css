@@ -225,3 +225,6 @@ input[type=number]{
 .text-justified-align{
   text-align: justify;
 }
+.elements-align-right{
+  float: right;
+}
