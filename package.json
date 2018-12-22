@@ -1,0 +1,29 @@
+{
+	"name": "store-manager",
+	"version": "1.0.0",
+	"description": "A web application that helps store owners manage sales and product inventory records. This application is meant for use in a single store.",
+	"main": "index.js",
+	"dependencies": {
+		"faker": "^4.1.0",
+		"jest": "^23.6.0",
+		"puppeteer": "^1.11.0"
+	},
+	"devDependencies": {
+		"babel-core": "^6.26.3",
+		"babel-jest": "^23.6.0",
+		"babel-preset-env": "^1.7.0"
+	},
+	"scripts": {
+		"test": "jest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/JoshuaKodhe/Store-Manager.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/JoshuaKodhe/Store-Manager/issues"
+	},
+	"homepage": "https://github.com/JoshuaKodhe/Store-Manager#readme"
+}

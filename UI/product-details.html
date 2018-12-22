@@ -2,51 +2,55 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="resources/css/styles.css">
-  <title>Store Manager | Product details</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="resources/css/styles.css">
+	<title>Store Manager | Product details</title>
 </head>
 
 <body>
-  <div class="container">
-    <div class="header">
-      <a href="products.html" class="header-brand">Store Manager</a>
-      <ul class="nav-items">
-        <li class="wrapper"> <a href="index.html">Log Out</a></li>
-        <li class="wrapper">
-          <a href="profile.html">Joshua Kodhe</a>
-        </li>
-      </ul>
-    </div>
-    <div class="main">
-      <div class="row">
-        <div class="page-header">
-          <img src="resources/images/product-details.png" alt="">
-          <h1>Detailed view of product</h1>
+	<div class="container">
+		<div class="header">
+			<a href="products.html" class="header-brand">Store Manager</a>
+			<ul class="nav-items">
+				<li>
+					<button class="btn" id="logOut">log out</button>
+				</li>
+				<li>
+					<button class="btn"> Joshua Kodhe</button>
+				</li>
+			</ul>
 		</div>
-		<div id="response"></div>
-      </div>
-      <div class="row">
-        <div class="product-details">
-          <div class="product-image-detail">
-            <div class="row">
-              <img src="resources/images/dummy.jpg" alt="">
-            </div>
-          </div>
-          <div class="product-text-detail">
-            <div class="row" id="productDetails">
-            </div>
-            <div class="row admin" id="admin">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer">
-      <p> &copy; Store Management ltd</p>
-    </div>
-  </div>
+		<div class="main">
+			<div class="row">
+				<div class="page-header">
+					<img src="resources/images/product-details.png" alt="">
+					<h1>Detailed view of product</h1>
+				</div>
+				<div id="response"></div>
+			</div>
+			<div class="row">
+				<div class="product-details">
+					<div class="product-image-detail">
+						<div class="row" id="productImage">
+
+						</div>
+					</div>
+					<div class="product-text-detail">
+						<div class="row" id="productDetails">
+						</div>
+						<div class="row admin" id="admin">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<p> &copy; Store Management ltd</p>
+		</div>
+	</div>
 </body>
 <script src="resources/js/products.js"></script>
+<script src="resources/js/auth.js"></script>
+
 </html>

@@ -1,8 +1,18 @@
 /*jshint esversion: 6 */
 
-const baseUrl="http://127.0.0.1:5000/api/v2";
+const authBaseUrl="http://127.0.0.1:5000/api/v2";
 
-document.getElementById("loginUser").addEventListener("submit", loginUser);
+if(document.getElementById("loginUser")){
+	document.getElementById("loginUser").addEventListener("submit", loginUser);
+}
+
+function getUserToken(){
+	if(localStorage.getItem("token")){
+		return `Bearer ${localStorage.getItem("token")}`;
+	}else{
+		return false;
+	}
+}
 
 function loginUser(e){
 	e.preventDefault();
@@ -10,7 +20,7 @@ function loginUser(e){
 	const email = document.getElementById("email").value;
 	const password = document.getElementById('password').value;
 
-	fetch(`${baseUrl}/auth/login`,{
+	fetch(`${authBaseUrl}/auth/login`,{
 		method:'POST',
 		headers:{
 		'Access-Control-Allow-Origin':'*',
@@ -34,3 +44,36 @@ function loginUser(e){
 	});
 
 }
+
+if(document.getElementById("logOut")){
+	document.getElementById("logOut").addEventListener("click", logOut);
+}
+
+function logOut(){
+	fetch(`${authBaseUrl}/auth/logout`, {
+		method:'DELETE',
+		headers:{
+			'Access-Control-Allow-Origin':'*',
+			'Access-Control-Request-Method': '*',
+			'Content-Type': 'application/json',
+			'Authorization':getUserToken()
+			}
+
+	})
+	.then(res => res.json())
+	.then(data => {	
+		console.log(data);	
+		if(data.message == "Successfully logged out"){
+			localStorage.removeItem('token');
+			window.location.replace('index.html');
+	}else{
+		throw new Error(data.message);
+	}
+})
+	.catch((err) => {
+	document.getElementById('response').style.color = 'red';
+	document.getElementById('response').innerHTML = err.message;
+	});
+}
+
+
